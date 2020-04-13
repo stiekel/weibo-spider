@@ -1,0 +1,23 @@
+{
+  "name": "weibo-spider",
+  "version": "0.0.1",
+  "description": "a weibo spider",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stiekel/weibo-spider.git"
+  },
+  "keywords": [
+    "weibo",
+    "spider"
+  ],
+  "author": "stiekel (histkc@gmail.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/stiekel/weibo-spider/issues"
+  },
+  "homepage": "https://github.com/stiekel/weibo-spider#readme"
+}
