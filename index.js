@@ -1,4 +1,6 @@
-const profile = require('./src/profile')
+const profile = require('./src/profile');
+const topic = require('./src/topic');
 module.exports = {
-    profile
+    profile,
+    topic
 };

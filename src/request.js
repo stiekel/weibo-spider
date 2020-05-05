@@ -11,7 +11,7 @@ let LAST_AT = 0;
  * @param {object} params
  * @return {response} cheerio object
  */
-module.exports = async (method, url, query, body) => {
+module.exports = async (method, url, query, body, headers = {}) => {
     // 两次请求，间隔 config.requestInterval 的时间
     let currentTS = new Date().getTime();
     if (currentTS - LAST_AT < config.requestInterval) {
@@ -21,6 +21,9 @@ module.exports = async (method, url, query, body) => {
     return new Promise((resolve, reject) => {
         let agent = superagent[method](url);
         agent.set(`Accept`, `text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9`)
+        for (let key in headers) {
+            agent.set(key, headers[key]);
+        }
         if (query) {
             agent = agent.query(query);
         }
