@@ -18,7 +18,12 @@ describe('weibo-spider', () => {
     });
     describe('Topic', () => {
         it('搜索关键字', async () => {
-            return weiboSpider.topic('你捐的衣服去哪里了').then(r => {
+            return weiboSpider.topic({
+                keyword: '你捐的衣服去哪里了',
+                starttime: '20200417',
+                endtime: '20200420'
+            }).then(r => {
+                console.log(JSON.stringify(r, null, 2))
                 expect(r).to.be.a('object');
                 expect(r.totalCount).to.be.a('number');
                 expect(r.totalCount >= 0).to.be.equal(true);
