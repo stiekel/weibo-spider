@@ -1,5 +1,15 @@
 # weibo-spider
 
+## 初始化
+
+```js
+const WeiboSpider = require('weibo-spider')
+let weiboSpider = new WeiboSpider({
+    cookie: 'you cookie here',
+    requestInterval: 300
+})
+```
+
 ## 获取用户资料详情
 
 用法如下：

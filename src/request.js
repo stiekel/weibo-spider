@@ -36,6 +36,8 @@ module.exports = async (method, url, query, body, headers = {}) => {
                 decodeEntities: false
             });
             return resolve($);
-        }).catch();
+        }).catch(e => {
+            throw new Error('REQUEST_WEIBO_FAILED')
+        });
     });
 };

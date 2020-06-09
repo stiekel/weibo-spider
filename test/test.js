@@ -1,8 +1,11 @@
 const chai = require('chai');
 const expect = chai.expect;
 chai.config.includeStack = true;
-const weiboSpider = require('../index');
+const WeiboSpider = require('../index');
 
+let weiboSpider = new WeiboSpider({
+    cookie: ''
+})
 describe('weibo-spider', () => {
     describe('Profile', () => {
         it('用户资料结果对象检查', async () => {
@@ -20,13 +23,14 @@ describe('weibo-spider', () => {
         it('搜索关键字', async () => {
             return weiboSpider.topic({
                 keyword: '你捐的衣服去哪里了',
-                starttime: '20200417',
+                starttime: '20200419',
                 endtime: '20200420'
             }).then(r => {
-                console.log(JSON.stringify(r, null, 2))
                 expect(r).to.be.a('object');
                 expect(r.totalCount).to.be.a('number');
-                expect(r.totalCount >= 0).to.be.equal(true);
+                expect(r.totalCount > 0).to.be.equal(true);
+            }).catch(e => {
+                console.log(e)
             });
         })
     });
